@@ -62,7 +62,7 @@ body {
   color: var(--ledgreen);
   text-shadow: 0 0 5px rgba(25,242,0,0.6);
   white-space: nowrap;
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 80s linear infinite;
 }
 .chyron-content .sep { color: #ff8c1a; padding: 0 10px; }
 @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
