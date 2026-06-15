@@ -319,8 +319,23 @@ body {
 }
 .quote-by { font-style: normal; font-weight: bold; color: var(--navy); margin-top: 8px; text-align: right; }
 
-/* ===== DOWNLOAD ===== */
-.dl-head { font-size: 22px; font-weight: bold; color: var(--navy); margin: 0 0 14px; }
+/* ===== SIGN UP ===== */
+.dl-head { font-size: 22px; font-weight: bold; color: var(--navy); margin: 0 0 8px; }
+.signup-sub { font-size: 14px; color: #20204a; margin: 0 auto 18px; max-width: 470px; line-height: 1.5; }
+.signup-form { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+.signup-form input {
+  font-family: "Tahoma", sans-serif;
+  font-size: 16px;
+  padding: 11px 12px;
+  min-width: 250px;
+  color: #000;
+  background: #fff;
+  border: 2px solid #000;
+  border-top-color: var(--silver-d); border-left-color: var(--silver-d);
+  border-right-color: #fff; border-bottom-color: #fff;
+}
+.signup-form input:focus { outline: 2px dotted var(--navy); outline-offset: -5px; }
+.signup-form button { cursor: pointer; }
 
 /* ===== FOOTER ===== */
 .footer {

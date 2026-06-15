@@ -42,7 +42,7 @@
         and shares half the money with you. Earn a little the whole time
         you use your Mac.
       </p>
-      <a href="#download" class="button button-go">⬇&nbsp; Download for Mac</a>
+      <a href="#signup" class="button button-go">✦&nbsp; Get Early Access</a>
       <div class="hero-note">Free • 4 MB • Quit anytime</div>
     </td>
     <!-- Right: the Pipes screensaver, in a CRT -->
@@ -89,10 +89,8 @@
 </td></tr>
 </table>
 
-<br>
-
-<!-- ===== TOP ADVERTISERS ===== -->
-<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<!-- ===== TOP ADVERTISERS (hidden) ===== -->
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860" hidden>
 <tr><td class="titlebar">
   <span class="titlebar-text">🏆 Top Advertisers</span>
   <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
@@ -150,7 +148,7 @@
 <!-- ===== TESTIMONIALS ===== -->
 <table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
 <tr><td class="titlebar">
-  <span class="titlebar-text">💬 What People Say</span>
+  <span class="titlebar-text">💬 What People <i>Will</i> Say</span>
   <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
 </td></tr>
 <tr><td class="window-body">
@@ -169,17 +167,21 @@
 
 <br>
 
-<!-- ===== DOWNLOAD ===== -->
-<a name="download"></a>
+<!-- ===== SIGN UP ===== -->
+<a name="signup"></a>
 <table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
 <tr><td class="titlebar">
-  <span class="titlebar-text">⬇ Download Admaxxing</span>
+  <span class="titlebar-text">✦ Sign Up For Early Access</span>
   <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
 </td></tr>
 <tr><td class="window-body" align="center">
-  <p class="dl-head">Ready to start earning?</p>
-  <a href="#" class="button button-go button-big" onclick="celebrate();return false;">⬇&nbsp; Download for Mac</a>
-  <div class="hero-note">macOS 12+ • Free forever • Half of all ad revenue is yours</div>
+  <p class="dl-head">Be first to start earning.</p>
+  <p class="signup-sub">Admaxxing is launching soon. Leave your email and we'll send your download link the day it's ready.</p>
+  <form id="signupForm" class="signup-form" onsubmit="return signup(event)">
+    <input type="email" id="signupEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
+    <button type="submit" class="button button-go button-big">Sign Up&nbsp; ✦</button>
+  </form>
+  <div class="hero-note" id="signupNote">macOS 12+ • Free forever • Half of all ad revenue is yours</div>
 </td></tr>
 </table>
 

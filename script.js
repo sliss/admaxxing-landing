@@ -310,10 +310,21 @@
 
 
 /* ============================================================
-   4) DOWNLOAD FLOURISH
+   4) SIGN UP
+   Demo handler: confirms inline without a backend. To actually
+   collect emails, point the <form> at a form endpoint (e.g.
+   Formspree) and delete this preventDefault handler — see notes.
    ============================================================ */
-function celebrate() {
-  alert("🎉 Thanks for trying Admaxxing!\n\nThis is a demo, so there's nothing to install — " +
-        "but your attention is already appreciated.");
+function signup(e) {
+  e.preventDefault();
+  var note = document.getElementById('signupNote');
+  var email = document.getElementById('signupEmail');
+  if (note) {
+    note.textContent = "✓ You're on the list! We'll email your download link at launch.";
+    note.style.color = '#0a7d1a';
+    note.style.fontWeight = 'bold';
+  }
+  if (email) { email.value = ''; email.blur(); }
+  return false;
 }
-window.celebrate = celebrate;
+window.signup = signup;
