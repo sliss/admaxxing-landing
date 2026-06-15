@@ -330,6 +330,10 @@ body {
 }
 .quote-by { font-style: normal; font-weight: bold; color: var(--navy); margin-top: 8px; text-align: right; }
 
+/* ===== WHO WE ARE ===== */
+.who-text { font-size: 15px; color: #20204a; margin: 0; line-height: 1.5; }
+.who-text a { color: #0000ee; font-weight: bold; }
+
 /* ===== DOWNLOAD THE DEMO ===== */
 .demo-intro { font-size: 15px; color: #20204a; margin: 0 0 6px; line-height: 1.5; }
 .demo-steps {
