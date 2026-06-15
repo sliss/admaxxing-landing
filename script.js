@@ -311,20 +311,64 @@
 
 /* ============================================================
    4) SIGN UP
-   Demo handler: confirms inline without a backend. To actually
-   collect emails, point the <form> at a form endpoint (e.g.
-   Formspree) and delete this preventDefault handler — see notes.
+   Posts the email to /api/signup (Vercel serverless + Postgres)
+   and keeps the inline Win98 confirmation — no page redirect.
    ============================================================ */
 function signup(e) {
   e.preventDefault();
-  var note = document.getElementById('signupNote');
+  var form = e.target;
   var email = document.getElementById('signupEmail');
-  if (note) {
-    note.textContent = "✓ You're on the list! We'll email your download link at launch.";
-    note.style.color = '#0a7d1a';
+  var hp = document.getElementById('signupHp');
+  var note = document.getElementById('signupNote');
+  var btn = form.querySelector('button');
+
+  function say(msg, color) {
+    if (!note) return;
+    note.textContent = msg;
+    note.style.color = color;
     note.style.fontWeight = 'bold';
   }
-  if (email) { email.value = ''; email.blur(); }
+
+  var value = (email.value || '').trim();
+  if (!value) return false;
+
+  var label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Signing up…';
+
+  fetch('/api/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: value,
+      company: hp ? hp.value : '',   // honeypot
+      source: 'landing'
+    })
+  })
+    .then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        return { ok: r.ok, data: data };
+      });
+    })
+    .then(function (res) {
+      if (res.ok) {
+        say("✓ You're on the list! We'll email your download link at launch.", '#0a7d1a');
+        email.value = '';
+        email.blur();
+        // leave the button disabled — they're done
+        btn.textContent = 'Signed up ✓';
+      } else {
+        say('⚠ ' + (res.data.error || 'Something went wrong — please try again.'), '#b00020');
+        btn.disabled = false;
+        btn.textContent = label;
+      }
+    })
+    .catch(function () {
+      say('⚠ Network error — please try again.', '#b00020');
+      btn.disabled = false;
+      btn.textContent = label;
+    });
+
   return false;
 }
 window.signup = signup;

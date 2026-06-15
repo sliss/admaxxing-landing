@@ -336,6 +336,9 @@ body {
 }
 .signup-form input:focus { outline: 2px dotted var(--navy); outline-offset: -5px; }
 .signup-form button { cursor: pointer; }
+.signup-form button[disabled] { opacity: 0.6; cursor: default; }
+/* Honeypot — hidden from humans, catnip for bots */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ===== FOOTER ===== */
 .footer {

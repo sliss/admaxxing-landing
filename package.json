@@ -1,0 +1,9 @@
+{
+  "name": "admaxxing-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Admaxxing landing site + signup API (Vercel static + serverless functions)",
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0"
+  }
+}
