@@ -330,6 +330,34 @@ body {
 }
 .quote-by { font-style: normal; font-weight: bold; color: var(--navy); margin-top: 8px; text-align: right; }
 
+/* ===== DOWNLOAD THE DEMO ===== */
+.demo-intro { font-size: 15px; color: #20204a; margin: 0 0 6px; line-height: 1.5; }
+.demo-steps {
+  margin: 14px 0 0;
+  padding-left: 26px;
+  font-size: 15px;
+  color: #20204a;
+  line-height: 1.55;
+}
+.demo-steps > li { margin-bottom: 12px; }
+.terminal {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  color: var(--ledgreen);
+  background: #000;
+  border: 2px solid #000;
+  border-top-color: #333; border-left-color: #333;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0 4px;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-shadow: 0 0 4px rgba(25,242,0,0.4);
+  user-select: all;
+}
+.term-prompt { color: #ff8c1a; margin-right: 8px; user-select: none; }
+.demo-tip { font-size: 12px; color: #555; font-style: italic; }
+
 /* ===== SIGN UP ===== */
 .dl-head { font-size: 22px; font-weight: bold; color: var(--navy); margin: 0 0 8px; }
 .signup-sub { font-size: 14px; color: #20204a; margin: 0 auto 18px; max-width: 470px; line-height: 1.5; }
