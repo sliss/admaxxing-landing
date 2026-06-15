@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- 1200x630 Open Graph / Twitter share image. Render with:
+     chrome --headless --screenshot --window-size=1200,630 og/share.html -->
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Tahoma", "Segoe UI", sans-serif;
+    background: #008080;
+    background-image:
+      radial-gradient(circle at 50% -20%, rgba(255,255,255,0.10), transparent 55%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 7px);
+    position: relative;
+  }
+
+  /* macOS menu bar — to place the chyron "beneath your toolbar" */
+  .menubar {
+    height: 32px;
+    background: linear-gradient(#fdfdfd, #ededed);
+    border-bottom: 1px solid #c4c4c4;
+    display: flex; align-items: center; gap: 20px;
+    padding: 0 16px;
+    font-size: 14px; color: #1c1c1c;
+  }
+  .menubar .apple { font-size: 16px; }
+  .menubar b { font-weight: 700; }
+  .menubar .spacer { flex: 1; }
+  .menubar .status { font-size: 14px; color: #2a2a2a; letter-spacing: .5px; }
+
+  /* The chyron — the actual product */
+  .chyron {
+    height: 52px;
+    display: flex; align-items: center; overflow: hidden;
+    background: linear-gradient(#2c2c2c, #121212);
+    border-bottom: 2px solid #000;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.55);
+    font-family: "VT323", monospace;
+  }
+  .chyron .label {
+    height: 100%; display: flex; align-items: center;
+    padding: 0 18px;
+    background: linear-gradient(#000080, #00004d);
+    color: #fff; font-size: 26px; letter-spacing: 2px; white-space: nowrap;
+  }
+  .chyron .track { flex: 1; overflow: hidden; white-space: nowrap; position: relative; height: 100%; }
+  .chyron .ads {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    left: -90px; white-space: nowrap;
+    font-size: 32px; color: #19f200;
+    text-shadow: 0 0 7px rgba(25,242,0,0.65);
+  }
+  .chyron .ads .sep { color: #ff8c1a; padding: 0 16px; }
+  .chyron .earn {
+    height: 100%; display: flex; align-items: center; gap: 9px;
+    padding: 0 18px;
+    background: #000; border-left: 2px solid #19f200;
+    color: #8fff84; font-size: 23px; white-space: nowrap;
+  }
+  .chyron .earn b { color: #ffd200; text-shadow: 0 0 6px rgba(255,210,0,0.55); }
+
+  /* little pointer up to the chyron */
+  .callout {
+    position: absolute; top: 100px; left: 50%; transform: translateX(-50%);
+    color: #eafffe;
+    font-size: 19px; font-style: italic;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.45);
+  }
+
+  /* brand lockup */
+  .brand { position: absolute; left: 0; right: 0; top: 250px; text-align: center; }
+  .logo {
+    font-family: "Arial Black", "Impact", sans-serif;
+    font-size: 132px; line-height: 1; letter-spacing: -3px;
+    background: linear-gradient(180deg, #ffffff 0%, #d6dbe6 38%, #8b93a6 52%, #eef1f6 70%, #ffffff 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 4px 0 #454a57);
+  }
+  .tagline {
+    font-size: 46px; font-weight: bold; color: #fff;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+    margin-top: 10px;
+  }
+  .sub {
+    font-size: 24px; color: #e6fffe; margin-top: 16px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.35);
+  }
+  .sub b { color: #ffd200; }
+</style>
+</head>
+<body>
+  <div class="menubar">
+    <span class="apple">&#63743;</span>
+    <b>Admaxxing</b><span>File</span><span>Edit</span><span>View</span><span>Window</span>
+    <span class="spacer"></span>
+    <span class="status">&#128246; &#128267; &#128269; &nbsp; Sun 9:41 AM</span>
+  </div>
+
+  <div class="chyron">
+    <div class="label">&#9654; ADMAXXING</div>
+    <div class="track">
+      <div class="ads">Cortex vector DB — ship AI features this week <span class="sep">&#9670;</span> Crater — ship your app to the edge in one command <span class="sep">&#9670;</span> Sentinel catches the bug before your users do <span class="sep">&#9670;</span> Quanta: serverless Postgres</div>
+    </div>
+    <div class="earn">EARNED TODAY: <b>$0.0428</b></div>
+  </div>
+
+  <div class="callout">&#8593; a scrolling banner of text ads, right beneath your toolbar</div>
+
+  <div class="brand">
+    <div class="logo">Admaxxing</div>
+    <div class="tagline">Get paid for your attention.</div>
+    <div class="sub">It pays you for every glance — and you keep <b>50%</b> of the revenue.</div>
+  </div>
+</body>
+</html>
