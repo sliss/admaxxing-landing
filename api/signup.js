@@ -1,13 +1,23 @@
-// POST /api/signup  — store an early-access email in Postgres.
+// POST /api/signup  — store an early-access email in Postgres (Neon).
 //
-// Backed by Vercel Postgres (Neon). Connect a Postgres store to the project
-// in the Vercel dashboard and it injects POSTGRES_URL automatically; the
-// @vercel/postgres `sql` helper reads it with no extra config.
+// Uses Neon's serverless driver over HTTP, ideal for Vercel functions.
+// Reads the connection string from DATABASE_URL (set by the Vercel <> Neon
+// integration in production; from .env locally via `vercel dev`).
 //
-// Local dev: run `vercel dev` (with the store linked via `vercel env pull`)
-// so this route and the env vars exist. A plain static server won't have /api.
+// Local dev: `vercel dev` so this route + env vars exist. A plain static
+// server has no /api and the form will surface a friendly error.
 
-const { sql } = require('@vercel/postgres');
+const { neon } = require('@neondatabase/serverless');
+
+let _sql;
+function getSql() {
+  if (!_sql) {
+    const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+    if (!url) throw new Error('No database URL (DATABASE_URL / POSTGRES_URL).');
+    _sql = neon(url);
+  }
+  return _sql;
+}
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -34,20 +44,22 @@ module.exports = async function handler(req, res) {
   const source = String(body.source || 'landing').slice(0, 64);
 
   try {
-    // Lazy bootstrap so there's no separate migration step for the MVP.
-    // Move to real migrations once more tables (users, advertisers…) land.
-    await sql`
-      CREATE TABLE IF NOT EXISTS signups (
-        id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-        email      TEXT NOT NULL UNIQUE,
-        source     TEXT,
-        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-      )`;
-
-    await sql`
-      INSERT INTO signups (email, source)
-      VALUES (${email}, ${source})
-      ON CONFLICT (email) DO NOTHING`;
+    const sql = getSql();
+    // Create-if-needed + insert in a single round trip. The table normally
+    // already exists (see `npm run migrate`); this keeps the route self-healing.
+    await sql.transaction([
+      sql`
+        CREATE TABLE IF NOT EXISTS signups (
+          id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+          email      TEXT NOT NULL UNIQUE,
+          source     TEXT,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )`,
+      sql`
+        INSERT INTO signups (email, source)
+        VALUES (${email}, ${source})
+        ON CONFLICT (email) DO NOTHING`,
+    ]);
 
     return res.status(200).json({ ok: true });
   } catch (err) {
