@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admaxxing — a friendly macOS menu-bar toolbar that shows one message at a time and pays you for your attention.">
+<title>Admaxxing — Get Paid For Your Attention</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>%F0%9F%92%B0</text></svg>">
+</head>
+<body>
+
+<!-- ===== LIVE PRODUCT CHYRON (the toolbar itself) ===== -->
+<div id="chyron" title="This is Admaxxing, running.">
+  <div class="chyron-label">▶ ADMAXXING</div>
+  <div class="chyron-track">
+    <span class="chyron-content" id="chyronContent"></span>
+  </div>
+  <div class="chyron-earnings">
+    EARNED TODAY:
+    <span class="odometer" id="earnOdo"></span>
+  </div>
+</div>
+
+<center>
+
+<!-- ===== HERO ===== -->
+<table class="window hero-window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">✦ Welcome to Admaxxing</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body hero-body">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr valign="middle">
+    <!-- Left: pitch -->
+    <td class="hero-left">
+      <div class="logo" id="logo">Admaxxing</div>
+      <div class="logo-tm">for&nbsp;macOS</div>
+      <h1 class="hero-head">Get paid for your attention.</h1>
+      <p class="hero-sub">
+        A friendly toolbar that scrolls a stream of ads across your menu bar —
+        and shares half the money with you. Earn a little the whole time
+        you use your Mac.
+      </p>
+      <a href="#download" class="button button-go">⬇&nbsp; Download for Mac</a>
+      <div class="hero-note">Free • 4 MB • Quit anytime</div>
+    </td>
+    <!-- Right: the Pipes screensaver, in a CRT -->
+    <td class="hero-right">
+      <div class="crt">
+        <div class="crt-screen">
+          <canvas id="pipes"></canvas>
+          <div class="crt-scanlines"></div>
+          <div class="crt-badge"><b>50%</b><span>to&nbsp;you</span></div>
+        </div>
+        <div class="crt-label">💸 Ad dollars flowing — half to YOU, half to us</div>
+      </div>
+    </td>
+  </tr></table>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== HOW IT WORKS ===== -->
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">📖 How It Works</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body">
+  <table cellpadding="12" cellspacing="0" border="0" width="100%"><tr valign="top">
+    <td width="33%" class="step">
+      <div class="step-num">1</div>
+      <b>Install</b>
+      <p>Download Admaxxing and it tucks itself into your menu bar in seconds.</p>
+    </td>
+    <td width="33%" class="step">
+      <div class="step-num">2</div>
+      <b>Use your Mac</b>
+      <p>A gentle stream of ads scrolls across your menu bar while you work.</p>
+    </td>
+    <td width="33%" class="step">
+      <div class="step-num">3</div>
+      <b>Get paid</b>
+      <p>Your balance ticks up as you go. Cash out to PayPal whenever you like.</p>
+    </td>
+  </tr></table>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== TOP ADVERTISERS ===== -->
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">🏆 Top Advertisers</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body">
+  <p class="ad-intro">The dev tools and startups you already love pay to reach you here — and you earn every time one of their ads scrolls by.</p>
+  <div class="ad-grid">
+    <div class="ad-chip"><span class="ad-ico">📦</span><b>Crater</b><span class="ad-cat">Edge deploys</span></div>
+    <div class="ad-chip"><span class="ad-ico">🚨</span><b>Sentinel</b><span class="ad-cat">Error monitoring</span></div>
+    <div class="ad-chip"><span class="ad-ico">🗄️</span><b>Quanta</b><span class="ad-cat">Serverless Postgres</span></div>
+    <div class="ad-chip"><span class="ad-ico">🔌</span><b>Relay</b><span class="ad-cat">API gateway</span></div>
+    <div class="ad-chip"><span class="ad-ico">🔐</span><b>Keycard</b><span class="ad-cat">Auth &amp; SSO</span></div>
+    <div class="ad-chip"><span class="ad-ico">💳</span><b>Ledgerline</b><span class="ad-cat">Payments API</span></div>
+    <div class="ad-chip"><span class="ad-ico">📡</span><b>Beacon</b><span class="ad-cat">Logs &amp; observability</span></div>
+    <div class="ad-chip"><span class="ad-ico">🧠</span><b>Cortex</b><span class="ad-cat">Vector database</span></div>
+    <div class="ad-chip"><span class="ad-ico">💻</span><b>Glyph</b><span class="ad-cat">Cloud IDE</span></div>
+    <div class="ad-chip"><span class="ad-ico">📋</span><b>Standup</b><span class="ad-cat">Async team syncs</span></div>
+    <div class="ad-chip"><span class="ad-ico">🏦</span><b>Capital</b><span class="ad-cat">Startup banking</span></div>
+    <div class="ad-chip"><span class="ad-ico">🧪</span><b>Probe</b><span class="ad-cat">CI/CD testing</span></div>
+  </div>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== WHY YOU'LL LIKE IT ===== -->
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">💡 Why You'll Like It</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body">
+  <table cellpadding="10" cellspacing="0" border="0" width="100%"><tr valign="top">
+    <td width="33%" class="card">
+      <div class="card-ico">💰</div>
+      <b>You keep half</b>
+      <p>Fifty percent of every ad dollar flows straight to your balance.</p>
+    </td>
+    <td width="33%" class="card">
+      <div class="card-ico">🔒</div>
+      <b>Your data stays put</b>
+      <p>Matching happens on your Mac. We never sell who you are.</p>
+    </td>
+    <td width="33%" class="card">
+      <div class="card-ico">⏻</div>
+      <b>You're in charge</b>
+      <p>Pause it, slow it, or quit entirely — one click, no hard feelings.</p>
+    </td>
+  </tr></table>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== TESTIMONIALS ===== -->
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">💬 What People Say</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body">
+  <table cellpadding="8" cellspacing="0" border="0" width="100%"><tr valign="top">
+    <td width="50%" class="quote">
+      “I leave it on all day. It's calm, it's out of the way, and the coffee money adds up.”
+      <div class="quote-by">— Maya R., designer</div>
+    </td>
+    <td width="50%" class="quote">
+      “Honestly didn't expect to like an ad toolbar. It just scrolls along quietly and the split is fair.”
+      <div class="quote-by">— Devin K., developer</div>
+    </td>
+  </tr></table>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== DOWNLOAD ===== -->
+<a name="download"></a>
+<table class="window" cellpadding="0" cellspacing="0" border="0" width="860">
+<tr><td class="titlebar">
+  <span class="titlebar-text">⬇ Download Admaxxing</span>
+  <span class="titlebar-btns"><span class="tb">_</span><span class="tb">□</span><span class="tb">×</span></span>
+</td></tr>
+<tr><td class="window-body" align="center">
+  <p class="dl-head">Ready to start earning?</p>
+  <a href="#" class="button button-go button-big" onclick="celebrate();return false;">⬇&nbsp; Download for Mac</a>
+  <div class="hero-note">macOS 12+ • Free forever • Half of all ad revenue is yours</div>
+</td></tr>
+</table>
+
+<br>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p class="footer-links">
+    <a href="#">Home</a> · <a href="#">How it works</a> · <a href="#">Privacy</a> · <a href="#">Support</a>
+  </p>
+  <p>© 2026 Admaxxing · A division of OpenAds · Made for people, by people.</p>
+  <p class="footer-wink">Made with care &amp; a little nostalgia. ✦</p>
+</div>
+
+</center>
+
+<script src="script.js"></script>
+</body>
+</html>

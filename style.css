@@ -1,0 +1,347 @@
+/* ============================================================
+   ADMAXXING v3 — sincere Y2K / Windows 98
+   Silver chrome, teal desktop, one 3D Pipes screensaver.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  --silver:   #c0c0c0;
+  --silver-l: #dfdfdf;
+  --silver-d: #808080;
+  --navy:     #000080;
+  --teal:     #008080;
+  --ledgreen: #19f200;
+  --gold:     #ffd200;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 0 30px;
+  font-family: "Tahoma", "MS Sans Serif", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: var(--navy);
+  background-color: var(--teal);
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(255,255,255,0.08), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 7px);
+}
+
+/* ===== LIVE PRODUCT CHYRON ===== */
+#chyron {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: linear-gradient(#2c2c2c, #131313);
+  border-bottom: 2px solid #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  font-family: "VT323", monospace;
+  overflow: hidden;
+}
+.chyron-label {
+  flex: 0 0 auto;
+  display: flex; align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  background: linear-gradient(var(--navy), #00004d);
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.chyron-track { flex: 1 1 auto; overflow: hidden; white-space: nowrap; }
+.chyron-content {
+  display: inline-block;
+  padding-left: 100%;
+  font-size: 21px;
+  color: var(--ledgreen);
+  text-shadow: 0 0 5px rgba(25,242,0,0.6);
+  white-space: nowrap;
+  animation: scroll-left 40s linear infinite;
+}
+.chyron-content .sep { color: #ff8c1a; padding: 0 10px; }
+@keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+.chyron-earnings {
+  flex: 0 0 auto;
+  display: flex; align-items: center; gap: 8px;
+  height: 100%;
+  padding: 0 12px;
+  background: #000;
+  border-left: 2px solid var(--ledgreen);
+  color: #8fff84;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* ===== ODOMETER ===== */
+.odometer { display: inline-flex; align-items: center; height: 22px; }
+.odo-digit {
+  position: relative;
+  width: 12px; height: 22px;
+  overflow: hidden;
+  background: #0a0a0a;
+  border: 1px solid #1f1f1f;
+  margin: 0 1px;
+  border-radius: 2px;
+}
+.odo-strip {
+  position: absolute;
+  top: 0; left: 0;
+  display: flex; flex-direction: column;
+  transition: transform .45s cubic-bezier(.3,1.4,.4,1);
+}
+.odo-strip span {
+  height: 22px; line-height: 22px;
+  text-align: center;
+  color: var(--gold);
+  font-size: 18px;
+  text-shadow: 0 0 4px rgba(255,210,0,0.5);
+}
+.odo-static {
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0 1px;
+  text-shadow: 0 0 4px rgba(255,210,0,0.5);
+}
+
+/* ===== WINDOWS ===== */
+.window {
+  margin-top: 22px;
+  background: var(--silver);
+  border: 2px solid #000;
+  border-top-color: var(--silver-l);
+  border-left-color: var(--silver-l);
+  border-right-color: var(--silver-d);
+  border-bottom-color: var(--silver-d);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.35), inset 1px 1px 0 #fff;
+}
+.hero-window { margin-top: 26px; }
+.titlebar {
+  background: linear-gradient(90deg, var(--navy), #1084d0);
+  color: #fff;
+  padding: 4px 6px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: bold; font-size: 14px;
+}
+.titlebar-btns .tb {
+  display: inline-block;
+  width: 17px; height: 15px; line-height: 13px;
+  text-align: center;
+  background: var(--silver);
+  color: #000;
+  border: 1px solid #000;
+  border-top-color: #fff; border-left-color: #fff;
+  margin-left: 2px; font-size: 10px;
+}
+.window-body { padding: 18px; text-align: left; }
+.window-body p { margin: 6px 0 0; line-height: 1.45; }
+
+/* ===== HERO ===== */
+.hero-body { padding: 26px 28px; }
+.hero-left { padding-right: 26px; vertical-align: middle; }
+.hero-right { width: 360px; }
+
+/* Chrome WordArt logo with sheen sweep */
+.logo {
+  font-family: "Arial Black", "Impact", sans-serif;
+  font-size: 58px;
+  line-height: 1;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, #ffffff 0%, #d6dbe6 38%, #8b93a6 52%, #eef1f6 70%, #ffffff 100%);
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(1px 2px 0 #4a4f5c) drop-shadow(0 0 1px #2a2d36);
+  position: relative;
+}
+.logo::after {
+  content: "Admaxxing";
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.95) 50%, transparent 65%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sheen 4.5s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 100% { background-position: 180% 0; }
+  50%      { background-position: -80% 0; }
+}
+.logo-tm {
+  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--silver-d); margin: 2px 0 14px; font-weight: bold;
+}
+.hero-head {
+  font-family: "Tahoma", sans-serif;
+  font-size: 30px; line-height: 1.1;
+  margin: 0 0 12px; color: var(--navy);
+}
+.hero-sub {
+  font-size: 15px; line-height: 1.5; color: #20204a;
+  margin: 0 0 20px; max-width: 420px;
+}
+.hero-note { font-size: 12px; color: #444; margin-top: 12px; }
+
+/* ===== BUTTONS (Win98 beveled) ===== */
+.button {
+  display: inline-block;
+  font-family: "Tahoma", sans-serif;
+  font-size: 16px; font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  padding: 11px 22px;
+  background: var(--silver);
+  border: 2px solid #000;
+  border-top-color: #fff; border-left-color: #fff;
+  border-right-color: var(--silver-d); border-bottom-color: var(--silver-d);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+.button:active {
+  border-top-color: var(--silver-d); border-left-color: var(--silver-d);
+  border-right-color: #fff; border-bottom-color: #fff;
+  box-shadow: none;
+}
+.button-go {
+  background: linear-gradient(#3ecf4a, #1ba32a);
+  color: #fff;
+  border-top-color: #9bffa6; border-left-color: #9bffa6;
+  border-right-color: #0c6e18; border-bottom-color: #0c6e18;
+  text-shadow: 1px 1px 0 #0a5713;
+}
+.button-big { font-size: 20px; padding: 15px 34px; }
+
+/* ===== CRT / PIPES ===== */
+.crt {
+  background: var(--silver);
+  border: 3px solid #000;
+  border-top-color: var(--silver-l); border-left-color: var(--silver-l);
+  border-right-color: var(--silver-d); border-bottom-color: var(--silver-d);
+  padding: 8px 8px 6px;
+  box-shadow: inset 1px 1px 0 #fff, 3px 3px 0 rgba(0,0,0,0.3);
+}
+.crt-screen {
+  position: relative;
+  background: #000;
+  border: 2px solid #000;
+  border-top-color: #333; border-left-color: #333;
+  border-right-color: #5a5a5a; border-bottom-color: #5a5a5a;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+#pipes { display: block; width: 100%; height: 100%; }
+.crt-scanlines {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 2px 3px);
+  border-radius: 6px;
+}
+.crt-label {
+  margin-top: 6px;
+  font-family: "VT323", monospace;
+  font-size: 15px;
+  color: #303030;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.crt-badge {
+  position: absolute;
+  top: 8px; right: 8px;
+  padding: 3px 8px;
+  text-align: center;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid var(--ledgreen);
+  border-radius: 4px;
+  font-family: "VT323", monospace;
+  color: var(--ledgreen);
+  text-shadow: 0 0 6px rgba(25,242,0,0.7);
+  line-height: 1;
+}
+.crt-badge b { display: block; font-size: 24px; }
+.crt-badge span { font-size: 11px; letter-spacing: 2px; }
+
+/* ===== TOP ADVERTISERS ===== */
+.ad-intro { margin: 0 0 4px; font-size: 14px; color: #20204a; }
+.ad-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.ad-chip {
+  flex: 1 1 180px;
+  display: flex; flex-direction: column;
+  padding: 10px 12px;
+  background: var(--silver-l);
+  border: 2px solid #000;
+  border-top-color: #fff; border-left-color: #fff;
+  border-right-color: var(--silver-d); border-bottom-color: var(--silver-d);
+}
+.ad-ico { font-size: 22px; line-height: 1; }
+.ad-chip b { color: var(--navy); font-size: 14px; margin-top: 5px; }
+.ad-cat { font-size: 12px; color: #555; }
+
+/* ===== STEPS ===== */
+.step { text-align: center; }
+.step-num {
+  width: 46px; height: 46px; line-height: 46px;
+  margin: 0 auto 8px;
+  font-family: "Arial Black"; font-size: 24px; color: #fff;
+  background: linear-gradient(var(--navy), #1084d0);
+  border-radius: 50%;
+  border: 2px solid #000;
+  border-top-color: #5aa0e0; border-left-color: #5aa0e0;
+}
+.step b { font-size: 16px; }
+
+/* ===== CARDS ===== */
+.card {
+  text-align: center;
+  background: var(--silver-l);
+  border: 2px solid #000;
+  border-top-color: #fff; border-left-color: #fff;
+  border-right-color: var(--silver-d); border-bottom-color: var(--silver-d);
+}
+.card-ico { font-size: 30px; margin-bottom: 6px; }
+.card b { font-size: 15px; }
+.card p { font-size: 13px; }
+
+/* ===== QUOTES ===== */
+.quote {
+  background: #ffffe1;
+  border: 1px solid #000;
+  border-top-color: #fff; border-left-color: #fff;
+  padding: 12px;
+  font-style: italic;
+  color: #1a1a1a;
+}
+.quote-by { font-style: normal; font-weight: bold; color: var(--navy); margin-top: 8px; text-align: right; }
+
+/* ===== DOWNLOAD ===== */
+.dl-head { font-size: 22px; font-weight: bold; color: var(--navy); margin: 0 0 14px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  max-width: 860px; margin: 24px auto 0;
+  color: #eafffe; font-size: 12px; line-height: 1.7;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+}
+.footer a { color: #d8ffff; }
+.footer-links a { font-weight: bold; }
+.footer-wink { color: #bdeeec; font-style: italic; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 880px) {
+  table[width="860"] { width: 96% !important; }
+  .hero-body table, .hero-body tr, .hero-left, .hero-right { display: block; width: auto !important; }
+  .hero-left { padding-right: 0; }
+  .hero-right { width: auto; margin-top: 22px; }
+  .logo { font-size: 46px; }
+  .hero-head { font-size: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chyron-content, .logo::after { animation: none; }
+}
